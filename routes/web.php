@@ -19,7 +19,9 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        return redirect()
+            ->route('topics');
+        //return Inertia::render('Dashboard');
     })->name('dashboard');
 
     Route::get('topics', [App\Http\Controllers\TopicController::class, 'index'])->name('topics');
